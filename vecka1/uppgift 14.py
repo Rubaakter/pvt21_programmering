@@ -1,11 +1,15 @@
 # uppgift14.py
-FRUITS = ['banana', 'apple', 'orange']
-CARS = ['volvo', 'ford', 'tesla']
-COLOURS = ['white', 'black', 'gray']
+
+FRUITS = print(input("Please enter some fruits name:"))
+#['banana', 'apple', 'orange']
+CARS = print(input("Please enter some cars name:"))
+#['volvo', 'ford', 'tesla']
+COLOURS = print(input("Please enter some colours name:"))
+#['white', 'black', 'gray']
 
 
 def run():
-    basket = ['volvo', 'is', 'an', 'white', 'orange', 'apple']
+    basket = ['volvo', 'is', 'an', 'white', 'orange', 'vehicle']
     cars = []
     fruits = []
     colours = []
