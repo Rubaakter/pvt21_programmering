@@ -1,4 +1,4 @@
-
+from math import pi
 min_var = "Detta är en textsträng"
 
 # Vad kommer följande kod göra
@@ -34,7 +34,8 @@ def add(a, b):
     return a+b
 
 
+# En testkommentar
 
 # Vilken nytta gör den här koden
 if __name__ == '__main__':
-    print(add(5,1))
+    print(add(5, 1))
