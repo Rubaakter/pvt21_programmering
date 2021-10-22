@@ -30,6 +30,6 @@ if __name__ == '__main__':
         print(question.prompt)
         print(f"{question.percent_correct()} användare svarade rätt på frågan")
         for i, answer in enumerate(question.answers, start=1):
-            print(f"[{i}]] {answer}")
+            print(f"[{i}] {answer}")
 
         print("-" * 80)
