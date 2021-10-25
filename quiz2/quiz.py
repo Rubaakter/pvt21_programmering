@@ -26,15 +26,10 @@ def parse_question(q) -> Question:
 
 
 if __name__ == '__main__':
-    q = Question(2, "Vad är klasser bra till?", 5, 2, [Answer("Det är en smidig abstraktion", True), Answer("foo", False)])
+    for question in get_questions():
+        print(question.prompt)
+        print(f"{question.percent_correct()} användare svarade rätt på frågan")
+        for i, answer in enumerate(question.answers, start=1):
+            print(f"[{i}] {answer}")
 
-    print(q.prompt)
-    for i, a in enumerate(q.answers, start=1):
-        print(f"[{i}] {a}")
-    # for question in get_questions():
-    #     print(question.prompt)
-    #     print(f"{question.percent_correct()} användare svarade rätt på frågan")
-    #     for i, answer in enumerate(question.answers, start=1):
-    #         print(f"[{i}]] {answer}")
-    #
-    #     print("-" * 80)
+        print("-" * 80)
