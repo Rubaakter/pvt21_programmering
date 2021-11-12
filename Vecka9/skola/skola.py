@@ -38,7 +38,8 @@ class Student(Person):
     courses: list
 
     def __init__(self, f_name, l_name, age, address=None):
-        super().__init__(f_name, l_name, age, address)
+        super().__init__(f_name, l_name, age,
+                         address)  # superklassen Person, sköter initiering av förnamn, efternamn, ålde och address
         self.courses = []
 
     def greet(self):
@@ -66,6 +67,7 @@ class Teacher(Person):
         return f"{self.first_name} {self.last_name} {self.age}år\n" \
                f"epost: {self.email}\n" \
                f"phone: {self.phone_no}"
+
 
 #               Person
 #               /   \
@@ -117,12 +119,11 @@ class Course:
         return item in self.students
 
 
-
 if __name__ == '__main__':
     programmering_pvt21 = Course(1, "Programmering", datetime.date(2021, 9, 13), datetime.date(2021, 12, 17))
     databasteknik_pvt21 = Course(2, "Databasteknik", datetime.date(2022, 1, 15), datetime.date(2022, 3, 10))
 
-    # TODO student1 skall ha en adress readn när vi initierar den på rad 127
+    # TODO student1 skall ha en adress redan när vi initierar den på rad 127
 
     student1 = Student("Kalle", "Efternamnsson", 30)
     student2 = Student("Sune", "Ny student", 25)
@@ -141,13 +142,12 @@ if __name__ == '__main__':
     student3.drop_course(databasteknik_pvt21)
     student3.drop_course(programmering_pvt21)
     print(programmering_pvt21)
-    print("-"*100)
+    print("-" * 100)
     print(databasteknik_pvt21)
     print("-" * 100)
     courses = [programmering_pvt21, databasteknik_pvt21]
     students = [student1, student2, student3]
     # För varje student, hitta alla kurser den läser
-
 
     for student in students:
         print(f"{student.first_name} {student.last_name} läser:")
@@ -155,5 +155,3 @@ if __name__ == '__main__':
             print(f"{course.course_name}")
         print("-" * 100)
 
-
-    print(student3 in programmering_pvt21)
