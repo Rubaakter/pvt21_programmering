@@ -64,19 +64,21 @@ class WebAPI(API):
 
             # Nästa problem är svarsalternativen, som ligger i en lista
             # Vi behöver läsa in dom, skapa instanser av Anser och lägga i en lista
-            answers = []
-            for answer in question["answers"]:
-                ans = answer["answer"]
-                correct = answer["correct"]
-                answers.append(Answer(ans, correct))
+            answers = [Answer(answer["answer"], answer["correct"]) for answer in question["answers"]]
 
             questions.append(Question(id, prompt, times_asked, times_correct, answers))
         return questions
 
+    # Inte implementerad än, testa att lägga till kod som faktiskt skickar data till apiet
     def post_answer(self, question: Question, correct: bool):
         print(f"Post answer{question.prompt}, correct {correct}")
 
 
+# En implementation av User som skriver ut frågan i konsollen
+# och frågar användaren efter ett svar
+# Kan förbättras genom felhantering av det användaren matar in
+# Skriv en hjälpfunktion som hämtar in ett svar från användare
+# skall bara acceptera giltiga heltal
 class ConsoleUser(User):
     def ask_question(self, question: Question) -> Answer:
         print(question.prompt)
@@ -87,6 +89,7 @@ class ConsoleUser(User):
         return question.answers[user_anser]
 
 
+# Den här användare svarar automatiskt rätt på alla frågor
 class CheatingUser(User):
     def ask_question(self, question: Question) -> Answer:
         print(question.prompt)
